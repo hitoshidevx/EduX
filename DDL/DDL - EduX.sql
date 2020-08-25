@@ -15,7 +15,7 @@ CREATE TABLE Usuario(
 	IdUsuario INT PRIMARY KEY IDENTITY NOT NULL,
 	Nome  VARCHAR(50),
 	Email VARCHAR(80),
-	Senha VARCHAR(80),
+	Senha VARCHAR(150),
 
 	-- FK - TipoUSuario
 	IdTipoUsuario INT FOREIGN KEY REFERENCES TipoUsuario (IdTipoUsuario)
@@ -25,7 +25,8 @@ CREATE TABLE Post(
 	IdPost INT PRIMARY KEY IDENTITY NOT NULL,
 	Titulo VARCHAR(50),
 	Texto  VARCHAR(50),
-	Imagem VARCHAR(50),
+	Imagem VARCHAR(250),
+	Curtida INT DEFAULT 0,
 
 	-- FK - Usuario 
 	IdUsuario INT FOREIGN KEY REFERENCES Usuario (IdUsuario)
@@ -33,12 +34,12 @@ CREATE TABLE Post(
 
 CREATE TABLE Curso(
 	IdCurso INT PRIMARY KEY IDENTITY NOT NULL,
-	Curso VARCHAR(50)
+	Descricao VARCHAR(50)
 );
 
 CREATE TABLE Turma(
 	IdTurma INT PRIMARY KEY IDENTITY NOT NULL,
-	Turma VARCHAR(50),
+	Descricao VARCHAR(50),
 
 	-- FK - Curso
 	IdCurso INT FOREIGN KEY REFERENCES Curso (IdCurso)
@@ -46,7 +47,6 @@ CREATE TABLE Turma(
 
 CREATE TABLE AlunoTurma(
 	IdAlunoTurma INT PRIMARY KEY IDENTITY NOT NULL,
-	Descricao VARCHAR(50),
 
 	-- FKs - Turma e Usuario
 	IdTurma   INT FOREIGN KEY REFERENCES Turma (IdTurma),
@@ -55,7 +55,6 @@ CREATE TABLE AlunoTurma(
 
 CREATE TABLE ProfTurma(
 	IdProfTurma INT PRIMARY KEY IDENTITY NOT NULL,
-	Descricao VARCHAR(50),
 
 	-- FKs - Turma e Usuario
 	IdTurma   INT FOREIGN KEY REFERENCES Turma (IdTurma),
@@ -64,7 +63,7 @@ CREATE TABLE ProfTurma(
 
 CREATE TABLE Categoria(
 	IdCategoria INT PRIMARY KEY IDENTITY NOT NULL,
-	Categoria VARCHAR(50)
+	Descricao VARCHAR(50)
 );
 
 CREATE TABLE Objetivo(
@@ -78,6 +77,8 @@ CREATE TABLE Objetivo(
 CREATE TABLE ObjetivoAluno(
 	IdObjetivoAluno INT PRIMARY KEY IDENTITY NOT NULL,
 	Descricao VARCHAR(50),
+	Nota INT DEFAULT NULL,
+	DataEntrega DATETIME,
 
 	-- FKs - Objetivo e AlunoTurma
 	IdObjetivo   INT FOREIGN KEY REFERENCES Objetivo (IdObjetivo),
@@ -86,7 +87,7 @@ CREATE TABLE ObjetivoAluno(
 
 CREATE TABLE Tema(
 	IdTema INT PRIMARY KEY IDENTITY NOT NULL,
-	Tema VARCHAR(50)
+	Descricao VARCHAR(50)
 );
 
 CREATE TABLE Dica(
