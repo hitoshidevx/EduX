@@ -49,7 +49,7 @@ CREATE TABLE AlunoTurma(
 	Descricao VARCHAR(50),
 
 	-- FKs - Turma e Usuario
-	IdTurma INT FOREIGN KEY REFERENCES Turma (IdTurma),
+	IdTurma   INT FOREIGN KEY REFERENCES Turma (IdTurma),
 	IdUsuario INT FOREIGN KEY REFERENCES Usuario (IdUsuario) 
 );
 
@@ -58,6 +58,43 @@ CREATE TABLE ProfTurma(
 	Descricao VARCHAR(50),
 
 	-- FKs - Turma e Usuario
-	IdTurma INT FOREIGN KEY REFERENCES Turma (IdTurma),
+	IdTurma   INT FOREIGN KEY REFERENCES Turma (IdTurma),
 	IdUsuario INT FOREIGN KEY REFERENCES Usuario (IdUsuario) 
+);
+
+CREATE TABLE Categoria(
+	IdCategoria INT PRIMARY KEY IDENTITY NOT NULL,
+	Categoria VARCHAR(50)
+);
+
+CREATE TABLE Objetivo(
+	IdObjetivo INT PRIMARY KEY IDENTITY NOT NULL,
+	Descricao VARCHAR(50),
+
+	-- FK - Categoria
+	IdCategoria INT FOREIGN KEY REFERENCES Categoria (IdCategoria)
+);
+
+CREATE TABLE ObjetivoAluno(
+	IdObjetivoAluno INT PRIMARY KEY IDENTITY NOT NULL,
+	Descricao VARCHAR(50),
+
+	-- FKs - Objetivo e AlunoTurma
+	IdObjetivo   INT FOREIGN KEY REFERENCES Objetivo (IdObjetivo),
+	IdAlunoTurma INT FOREIGN KEY REFERENCES AlunoTurma (IdAlunoTurma)
+);
+
+CREATE TABLE Tema(
+	IdTema INT PRIMARY KEY IDENTITY NOT NULL,
+	Tema VARCHAR(50)
+);
+
+CREATE TABLE Dica(
+	IdDica INT PRIMARY KEY IDENTITY NOT NULL,
+	Titulo    VARCHAR(50),
+	Descricao VARCHAR(50),
+
+	-- FKs - Usuario e Tema
+	IdUsuario INT FOREIGN KEY REFERENCES Usuario (IdUsuario),
+	IdTema    INT FOREIGN KEY REFERENCES Tema (IdTema)
 );
