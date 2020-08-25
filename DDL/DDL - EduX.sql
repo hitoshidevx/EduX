@@ -30,3 +30,34 @@ CREATE TABLE Post(
 	-- FK - Usuario 
 	IdUsuario INT FOREIGN KEY REFERENCES Usuario (IdUsuario)
 );
+
+CREATE TABLE Curso(
+	IdCurso INT PRIMARY KEY IDENTITY NOT NULL,
+	Curso VARCHAR(50)
+);
+
+CREATE TABLE Turma(
+	IdTurma INT PRIMARY KEY IDENTITY NOT NULL,
+	Turma VARCHAR(50),
+
+	-- FK - Curso
+	IdCurso INT FOREIGN KEY REFERENCES Curso (IdCurso)
+);
+
+CREATE TABLE AlunoTurma(
+	IdAlunoTurma INT PRIMARY KEY IDENTITY NOT NULL,
+	Descricao VARCHAR(50),
+
+	-- FKs - Turma e Usuario
+	IdTurma INT FOREIGN KEY REFERENCES Turma (IdTurma),
+	IdUsuario INT FOREIGN KEY REFERENCES Usuario (IdUsuario) 
+);
+
+CREATE TABLE ProfTurma(
+	IdProfTurma INT PRIMARY KEY IDENTITY NOT NULL,
+	Descricao VARCHAR(50),
+
+	-- FKs - Turma e Usuario
+	IdTurma INT FOREIGN KEY REFERENCES Turma (IdTurma),
+	IdUsuario INT FOREIGN KEY REFERENCES Usuario (IdUsuario) 
+);
