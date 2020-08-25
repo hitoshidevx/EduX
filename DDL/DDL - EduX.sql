@@ -1,0 +1,5 @@
+CREATE DATABASE edux;
+GO
+
+USE edux;
+GO
