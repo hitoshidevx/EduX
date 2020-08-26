@@ -5,7 +5,7 @@ INSERT INTO TipoUsuario(Tipo)
 VALUES ('Aluno');
 
 INSERT INTO Tema(Descricao)
-VALUES ('Banco de dados');
+VALUES ('C#');
 
 INSERT INTO Categoria(Descricao) 
 VALUES ('Backend');
@@ -13,24 +13,26 @@ VALUES ('Backend');
 INSERT INTO Curso(Descricao)
 VALUES ('Dev');
 
+DELETE FROM Curso WHERE IdCurso = 2;
+
 INSERT INTO Usuario(Nome, Email, Senha, IdTipoUsuario)
-VALUES ('Paulo', 'paulo@idk.com', '1234', 1);
+VALUES ('Ryan', 'ryan@idk.com', '1235', 2);
 
 INSERT INTO Objetivo(Descricao, IdCategoria)
-VALUES ('Construa a DDL do projeto solicitado', 1);
+VALUES ('Construa o projeto na data solicitada', 1);
 
 INSERT INTO Turma(Descricao, IdCurso)
 VALUES ('2DM', 1);
 
 INSERT INTO Post(Titulo, Texto, Imagem, Curtida, IdUsuario)
-VALUES ('Alguem me ajuda pfv :(',
-		'Estou com dificuldade no sql',
+VALUES ('Aula de auxilio',
+		'Para os alunos com dificuldade, entrem na aula',
 		'sql_print.jpeg', 
 		2,
 		1);
 
 INSERT INTO Dica (Titulo, Descricao, IdUsuario, IdTema)
-VALUES ('Dica da DML', 'Esqueceu ";" na linha 13', 1, 1);
+VALUES ('Dica de C#', 'Esqueceu ";" na linha 13', 3, 1);
 
 INSERT INTO AlunoTurma (IdUsuario, IdTurma)
 VALUES (1, 1);
