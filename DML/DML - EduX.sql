@@ -1,6 +1,9 @@
 USE edux;
 GO
 
+/*DML - EduX*/
+
+/*INSERT - Insere dados/valores nas colunas respectivamente denominada*/
 INSERT INTO TipoUsuario(Tipo)
 VALUES ('Aluno');
 
@@ -43,6 +46,7 @@ VALUES (2, 1);
 INSERT INTO ObjetivoAluno (Descricao, Nota, DataEntrega, IdObjetivo, IdAlunoTurma)
 VALUES ('', 90, '2020-08-26T00:00:00', 1, 2);
 
+/*Select - Função para consultar as colunas onde os dados foram atribuídos*/
 SELECT * FROM ObjetivoAluno;
 
 SELECT * FROM ProfTurma;

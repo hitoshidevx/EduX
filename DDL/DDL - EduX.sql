@@ -1,11 +1,14 @@
+/*DDL - EduX*/
+
+/*CREATE DATABASE - Cria o banco de dados*/
 CREATE DATABASE edux;
 GO
 
+/*USE - Usa o banco de dados criado*/
 USE edux;
 GO
 
-/*DDL - EduX*/
-
+/*CREATE TABLE - Cria uma nova tabela*/
 CREATE TABLE TipoUsuario(
 	IdTipoUsuario INT PRIMARY KEY IDENTITY NOT NULL,
 	Tipo VARCHAR(50)
