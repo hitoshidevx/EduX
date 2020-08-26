@@ -7,7 +7,7 @@ VALUES ('Aluno');
 INSERT INTO Tema(Descricao)
 VALUES ('Banco de dados');
 
-INSERT INTO Categoria(Descricao)
+INSERT INTO Categoria(Descricao) 
 VALUES ('Backend');
 
 INSERT INTO Curso(Descricao)
