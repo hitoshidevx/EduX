@@ -14,7 +14,7 @@ INSERT INTO Curso(Descricao)
 VALUES ('Dev');
 
 INSERT INTO Usuario(Nome, Email, Senha, IdTipoUsuario)
-VALUES ('Tiago', 'tiago@idk.com', '1234', 2);
+VALUES ('Paulo', 'paulo@idk.com', '1234', 1);
 
 INSERT INTO Objetivo(Descricao, IdCategoria)
 VALUES ('Construa a DDL do projeto solicitado', 1);
@@ -28,6 +28,26 @@ VALUES ('Alguem me ajuda pfv :(',
 		'sql_print.jpeg', 
 		2,
 		1);
+
+INSERT INTO Dica (Titulo, Descricao, IdUsuario, IdTema)
+VALUES ('Dica da DML', 'Esqueceu ";" na linha 13', 1, 1);
+
+INSERT INTO AlunoTurma (IdUsuario, IdTurma)
+VALUES (1, 1);
+
+INSERT INTO ProfTurma(IdUsuario, IdTurma)
+VALUES (2, 1);
+
+INSERT INTO ObjetivoAluno (Descricao, Nota, DataEntrega, IdObjetivo, IdAlunoTurma)
+VALUES ('', 90, '2020-08-26T00:00:00', 1, 2);
+
+SELECT * FROM ObjetivoAluno;
+
+SELECT * FROM ProfTurma;
+
+SELECT * FROM AlunoTurma;
+
+SELECT * FROM Dica;
 
 SELECT * FROM Post;
 
